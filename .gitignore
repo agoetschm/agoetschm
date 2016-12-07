@@ -16,5 +16,5 @@ server.pid
 .cache
 
 /activator*
-.idea/
-.sbtserver/
+.idea
+.sbtserver
