@@ -1,32 +1,29 @@
 package controllers
 
-import scala.concurrent._
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import javax.inject.Inject
 
-import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import play.api.Play.current
-import scala.slick.driver.PostgresDriver.simple._
 import models.User
 import models.Users
+import play.api.i18n.MessagesApi
 
 
-object UsersController extends Controller {
+class UsersController @Inject()(val messagesApi: MessagesApi) extends Controller {
 	val userForm = Form(
 	    mapping(
 	        "name" -> text,
 	        "id" -> optional(number)
 	)(User.apply)(User.unapply))
   	def index = Action {
-		  Ok(views.html.index(Users.all))
+		  Ok//(views.html.index(Users.all))
 	}
 	def show(id:Int) = Action {
-		Ok(views.html.users.show(Users.find(id)))
+		Ok//(views.html.users.show(Users.find(id)))
 	}
 	def add = Action {
-	    Ok(views.html.users.add(userForm))
+	    Ok//(views.html.users.add(userForm))
 	}
 	def save = Action{implicit request =>
 		val user = userForm.bindFromRequest.get
@@ -34,7 +31,7 @@ object UsersController extends Controller {
 		Redirect(routes.Application.index)
 	}
 	def edit(id:Int) = Action {
-		Ok(views.html.users.edit(id, userForm.fill(Users.find(id))))
+		Ok//(views.html.users.edit(id, userForm.fill(Users.find(id))))
 	}
 	def update(updateid: Int) = Action {implicit request =>
 		val user = userForm.bindFromRequest.get

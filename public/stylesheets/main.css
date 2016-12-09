@@ -1,0 +1,48 @@
+/*for the height 100% to work*/
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#logo-container{
+    font-size: 1.4em;
+}
+
+.parallax-container {
+    height: 500px;
+}
+
+.full-screen {
+    min-height: 100%;
+}
+
+nav{
+    opacity: 1;
+    /*opacity: 0;*/
+}
+
+/*necessary because the navbar is taken in account*/
+#hithere{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#arrow_down_1 {
+     position: absolute;
+     top: 80%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+ }
+
+
+/*nav {*/
+/*height: 45px;*/
+/*line-height: 45px;*/
+/*}*/
+
+/*.navbar-fixed {*/
+/*height: 45px;*/
+/*}*/
+        

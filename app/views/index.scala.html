@@ -1,30 +1,106 @@
-@(users: List[User])
+@(contactForm: Form[models.ContactMessage])(implicit messages: Messages)
 
-@main("Listing users") {
-	<div class="container">
-	    <h1>users: @users.length </h1>
-	    <a href="@routes.UsersController.add" class="btn btn-primary">Add User</a>
-	    <table class="table table-striped">
-		    <thead>
-		    	<tr>
-		    		<th>ID</th>
-					<th>Name</th>
-					<th>Edit</th>
-					<th>Delete</th>
-		    	</tr>
-		    </thead>
-			<tbody>
-				@for(user <- users) {
-				<tr>
-					<td>@user.id</td>
-					<td>@user.name</td>
-						@user.id.map { id =>
-							<td><a href="@routes.UsersController.edit(id)" class="btn btn-warning" type="submit">Edit</button></td>
-							<td>@helper.form(routes.UsersController.delete(id)){<button class="btn btn-danger" type="submit">Delete</button>}</li></td>
-						}
-				</tr>
-				}
-			</tbody>
-		</table>
-	</div>
+@import helper._
+
+@main("Anselme Goetschmann") {
+
+    <div id="hithere-container" class="full-screen">
+        @*<div class="navbar-fixed">*@
+        <nav class="white">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo grey-text text-darken-4">Anselme Goetschmann</a>
+                <ul id="desktop-nav" class="right hide-on-med-and-down">
+                    <li><a href="#about" class="grey-text text-darken-4">About</a></li>
+                    <li><a href="#contact" class="grey-text text-darken-4">Contact</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#about" class="grey-text text-darken-4">About</a></li>
+                    <li><a href="#contact" class="grey-text text-darken-4">Contact</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse">
+                    <i class="material-icons grey-text text-darken-4">menu</i></a>
+            </div>
+        </nav>
+        @*</div> *@
+
+        <h1 id="hithere" class="grey-text text-darken-4 light">Hi there !</h1>
+
+        <a id="arrow_down_1" class=" btn-floating white">
+            <i class="material-icons grey-text text-darken-4">keyboard_arrow_down</i></a>
+    </div>
+
+
+
+    <div class="parallax-container valign-wrapper">
+        <div class="parallax"><img src="@routes.Assets.at("images/tobermory.jpg")" alt="Tobermory"></div>
+    </div>
+
+
+    <div id="about" class="valign-wrapper container section scrollspy full-screen">
+        <div class="valign">
+            <div class="row">
+                <div class="col s8 offset-s2 center">
+                    <h5 class="light">
+                        This is just a little website to allow me to put something in the "personal website" field when I fill a form.
+                    </h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s2 offset-s4 center">
+                    <a href="https://ch.linkedin.com/in/anselme-goetschman"> <img src="@routes.Assets.at("images/linkedin-box.png")"/></a>
+                </div>
+                <div class="col s2 center">
+                    <a href="https://github.com/agoetschm"> <img src="@routes.Assets.at("images/github-circle.png")"/></a>
+                </div>
+            </div>
+            <br/><br/>
+            <div class="row">
+                <div class="col s12 center">
+                    <a id="arrow_down_2" class="center-align btn-floating white">
+                            <i class="material-icons grey-text text-darken-4">keyboard_arrow_down</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="parallax"><img src="@routes.Assets.at("images/toronto.jpg")" alt="Toronto"></div>
+    </div>
+
+
+
+    <div id="contact" class="container section scrollspy full-screen">
+        @*problem with valign and card = dirty*@
+        <br/><br/><br/>
+        <div class="row">
+            <div class="col l6 offset-l3 m8 offset-m2 s12">
+                <div class="card-panel">
+                    <h5 class="center grey-text text-darken-4">Contact</h5>
+                    @form(action = routes.Application.contact) {
+                        @inputText(contactForm("name"), '_label -> "Name", 'required -> "true",
+                            'class -> "validate", '_showConstraints -> false)
+                        @inputText(contactForm("email"), '_label -> "Email", 'type -> "email", 'required -> "true",
+                            'class -> "validate", '_showConstraints -> false)
+                        @textarea(contactForm("message"), '_label -> "Message", 'required -> "true",
+                            'class -> "validate materialize-textarea", '_showConstraints -> false)
+
+                        <div class="center"> <button class="btn waves-effect waves-light" type="submit">Send</button></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="page-footer grey darken-4">
+        <div class="footer-copyright">
+            <div class="container center">
+                © 2016 Anselme Goetschmann
+            </div>
+        </div>
+    </footer>
+
+
 }
