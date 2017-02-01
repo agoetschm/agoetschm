@@ -33,7 +33,7 @@ class Application @Inject()(mailerClient: MailerClient, ws: WSClient, configurat
         val email = Email(
           "Message from " + successData.name + " on agoetschm.com",
           successData.email,
-          Seq("agoetschm@agoetschm.com"),
+          Seq(configuration.underlying.getString("play.mailer.admin.email")),
           bodyText = Some(successData.message)
         )
 
