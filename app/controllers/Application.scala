@@ -37,7 +37,7 @@ class Application @Inject()(mailerClient: MailerClient, ws: WSClient, configurat
           bodyText = Some(successData.message)
         )
 
-        //                Logger.warn("captcha response  " + successData.recaptcha_response)
+        //Logger.warn("captcha response  " + successData.recaptcha_response)
 
         // send the reCaptcha response to google
         ws.url("https://www.google.com/recaptcha/api/siteverify")
@@ -48,8 +48,10 @@ class Application @Inject()(mailerClient: MailerClient, ws: WSClient, configurat
           .map(response => {
             val success = (response.json \ "success").as[Boolean]
             //            Logger.warn("captcha result : " + success)
-            if (success)
-              mailerClient.send(email)
+            if (success) {
+              val res = mailerClient.send(email)
+              //              Logger.warn("mail id : " + res)
+            }
             Redirect(routes.Application.index(Some(success)))
           })
       }
