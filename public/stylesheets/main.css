@@ -5,7 +5,7 @@ html, body {
     padding: 0;
 }
 
-#logo-container{
+#logo-container {
     font-size: 1.4em;
 }
 
@@ -17,32 +17,22 @@ html, body {
     min-height: 100%;
 }
 
-nav{
+nav {
     opacity: 1;
     /*opacity: 0;*/
 }
 
 /*necessary because the navbar is taken in account*/
-#hithere{
+#hithere {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 #arrow_down_1 {
-     position: absolute;
-     top: 80%;
-     left: 50%;
-     transform: translate(-50%, -50%);
- }
-
-
-/*nav {*/
-/*height: 45px;*/
-/*line-height: 45px;*/
-/*}*/
-
-/*.navbar-fixed {*/
-/*height: 45px;*/
-/*}*/
-        
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

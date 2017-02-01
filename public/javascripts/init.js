@@ -13,9 +13,15 @@
             $("html, body").animate({ scrollTop: $("#contact").offset().top  }, 2000);
         });
 
-
         Materialize.updateTextFields();
-
+        
+        // display contact messages
+        if(displayCaptchaError) {
+            Materialize.toast('Something went wrong with the captcha.', 6000);
+        } 
+        else if(displayContactOk) {
+            Materialize.toast('Message sent successfully.', 6000);
+        }
         // var options = [{
         //     selector: '#about', offset: 1, callback: function () {
         //         console.log("test");
