@@ -1,40 +1,71 @@
+@import java.util.Date
 @(contactForm: Form[models.ContactMessage], contactSuccess: Option[Boolean])(implicit messages: Messages)
 
 @import helper._
+@import views.FormHelper._
 
 @main("Anselme Goetschmann") {
 
     @if(contactSuccess.isDefined) {
         @*tell the init.js script to display the right message once materialize is loaded*@
         <script type="text/javascript">
-            if(@contactSuccess.get)
-                var displayContactOk = true;
-            else   
-                var displayCaptchaError = true;
+                if (@contactSuccess.get)
+                    var displayContactOk = true;
+                else
+                    var displayCaptchaError = true;
         </script>
     }
-    
-    <div id="hithere-container" class="full-screen">
-        @*<div class="navbar-fixed">*@
-        <nav class="white">
-            <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo grey-text text-darken-4">Anselme Goetschmann</a>
-                <ul id="desktop-nav" class="right hide-on-med-and-down">
-                    <li><a href="#about" class="grey-text text-darken-4">About</a></li>
-                    <li><a href="#contact" class="grey-text text-darken-4">Contact</a></li>
-                </ul>
 
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#about" class="grey-text text-darken-4">About</a></li>
-                    <li><a href="#contact" class="grey-text text-darken-4">Contact</a></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse">
-                    <i class="material-icons grey-text text-darken-4">menu</i></a>
+    <div id="about" class="full-screen">
+        <div class="navbar-fixed">
+            <nav class="grey darken-4">
+                <div class="nav-wrapper container">
+                    <a id="logo-container" href="#" class="brand-logo grey-text text-lighten-4">Anselme Goetschmann</a>
+                    <ul id="desktop-nav" class="right hide-on-med-and-down">
+                        <li><a href="#about" class="grey-text text-lighten-4">Home</a></li>
+                        <li><a href="#projects" class="grey-text text-lighten-4">Projects</a></li>
+                        <li><a href="#contact" class="grey-text text-lighten-4">Contact</a></li>
+                    </ul>
+
+                    <a href="#" data-activates="nav-mobile" class="button-collapse">
+                        <i class="material-icons grey-text text-lighten-4">menu</i></a>
+                </div>
+            </nav>
+        </div>
+
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="#about" class="grey-text text-darken-4">Home</a></li>
+            <li><a href="#projects" class="grey-text text-darken-4">Projects</a></li>
+            <li><a href="#contact" class="grey-text text-darken-4">Contact</a></li>
+        </ul>
+
+        <div id="hithere" class="container">
+
+            <h1 class="center grey-text text-darken-4 light">Hi there !</h1>
+
+            <div class="row">
+                <h5 class="col s12 m10 offset-m1 l8 offset-l2 light">
+                    Below are a few links if you want to check out my online accounts. You can find some of my 
+                    software projects further down.
+                </h5>
             </div>
-        </nav>
-        @*</div> *@
 
-        <h1 id="hithere" class="grey-text text-darken-4 light">Hi there !</h1>
+            <div class="row">
+                <a class="col s4 m2 offset-m3 center tooltipped" href="http://www.linkedin.com/in/anselme-goetschmann"
+                data-tooltip="LinkedIn profile">
+                    <img src="@routes.Assets.at("images/linkedin-box.png")" height="48" width="48"/>
+                </a>
+
+                <a class="col s4 m2 center tooltipped" href="http://github.com/agoetschm" data-tooltip="Github profile">
+                    <img src="@routes.Assets.at("images/github-circle.png")" height="48" width="48"/>
+                </a>
+
+                <a class="col s4 m2 center tooltipped" href="http://play.google.com/store/apps/developer?id=goetschy"
+                data-tooltip="Android apps">
+                    <img src="@routes.Assets.at("images/google-play.png")" height="48" width="48"/>
+                </a>
+            </div>
+        </div>
 
         <a id="arrow_down_1" class="btn-floating white">
             <i class="material-icons grey-text text-darken-4">keyboard_arrow_down</i>
@@ -42,43 +73,103 @@
     </div>
 
 
-
     <div class="parallax-container valign-wrapper">
         <div class="parallax"><img src="@routes.Assets.at("images/tobermory.jpg")" alt="Bruce peninusula"></div>
     </div>
 
+    <div id="projects" class="container section scrollspy full-screen">
+        <br/><br/>
+        <h4 class="center grey-text text-darken-4">Projects</h4>
 
-    <div id="about" class="valign-wrapper container section scrollspy full-screen">
-        <div class="valign">
-            <div class="row">
-                <div class="col s8 offset-s2 center">
-                    <h5 class="light">
-                        This is just a little website to allow me to put something in the "personal website" field when I fill a form.
-                    </h5>
+        <div class="row">
+            @*vr file browser*@
+            <div class="col s12 m6 l4">
+                <div class="card hoverable sticky-action">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@routes.Assets.at("images/vr_file_browser.png")">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            VR File Browser
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            VR File Browser<i class="material-icons right">close</i>
+                        </span>
+                        <p>An Android application to test <a href="https://developers.google.com/vr/unity/">
+                            Google VR in Unity</a>. It allows you to explore your folders and
+                            files as if they were boxes in a virtual reality. You can see the result on 
+                            Google Play, even if it's not really
+                            usable.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://github.com/agoetschm/vr_file_browser">GitHub</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.agoetschm.android.vrfilebrowser">
+                            Google Play</a>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <a class="col s2 offset-s3 center tooltipped hoverable" href="http://www.linkedin.com/in/anselme-goetschmann"
-                data-tooltip="LinkedIn profile">
-                    <img src="@routes.Assets.at("images/linkedin-box.png")" height="48" width="48"/>
-                </a>
-
-                <a class="col s2 center tooltipped hoverable" href="http://github.com/agoetschm" data-tooltip="Github profile">
-                    <img src="@routes.Assets.at("images/github-circle.png")" height="48" width="48"/>
-                </a>
-
-                <a class="col s2 center tooltipped hoverable" href="http://play.google.com/store/apps/developer?id=goetschy"
-                data-tooltip="Android apps">
-                    <img src="@routes.Assets.at("images/google-play.png")" height="48" width="48"/>
-                </a>
-            </div>
-            <br/><br/>
-            <div class="row">
-                <div class="col s12 center">
-                    <a id="arrow_down_2" class="center-align btn-floating white">
-                        <i class="material-icons grey-text text-darken-4">keyboard_arrow_down</i></a>
+            @*linkmanager*@
+            <div class="col s12 m6 l4">
+                <div class="card hoverable sticky-action">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@routes.Assets.at("images/linkmanager.png")">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            Link Manager
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            Link Manager<i class="material-icons right">close</i>
+                        </span>
+                        <p>
+                            A web application written in <a href="http://www.scala-lang.org/">Scala</a> to
+                            experiment with the <a href="https://www.playframework.com/">Play Framework</a>,
+                            <a href="https://www.silhouette.rocks/">Silhouette</a> and
+                            <a href="http://materializecss.com/">Materialize</a>.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://github.com/agoetschm/linkmanager">GitHub</a>
+                    </div>
                 </div>
             </div>
+            @*gest usfr*@
+            <div class="col s12 m6 l4">
+                <div class="card hoverable sticky-action">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@routes.Assets.at("images/gestusfr.jpg")">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            GestUSFR
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            GestUSFR<i class="material-icons right">close</i>
+                        </span>
+                        <p>
+                            An Android client for a patient management system based on OpenERP. The goal is
+                            to be able to centralize patient information sheets and to edit them on tablets. USFR 
+                            refers to <a href="http://usfr.ch">usfr.ch</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="center">
+            <a id="arrow_down_2" class="btn-floating white">
+                <i class="material-icons grey-text text-darken-4">keyboard_arrow_down</i>
+            </a>
         </div>
     </div>
 
@@ -87,14 +178,12 @@
     </div>
 
 
-
     <div id="contact" class="container section scrollspy full-screen">
-        @*problem with valign and card = dirty*@
-        <br/><br/>
+        <br/><br/><br/> @*problem with valign and card = dirty*@
         <div class="row">
             <div class="col l6 offset-l3 m8 offset-m2 s12">
                 <div class="card-panel">
-                    <h5 class="center grey-text text-darken-4">Contact</h5>
+                    <h4 class="center grey-text text-darken-4">Contact</h4>
                     @form(action = routes.Application.contact) {
                         @inputText(contactForm("name"), '_label -> "Name", 'required -> "true",
                             'class -> "validate", '_showConstraints -> false)
@@ -115,11 +204,10 @@
     </div>
 
 
-
     <footer class="page-footer grey darken-4">
         <div class="footer-copyright">
             <div class="container">
-                © 2016 Anselme Goetschmann
+                    &copy; @(new Date().format("yyyy")) Anselme Goetschmann
                 <div class="right">
                     Made with <a href="http://www.playframework.com/">Play Framework</a> and
                     <a href="http://materializecss.com/">Materialize</a>,
@@ -128,7 +216,6 @@
             </div>
         </div>
     </footer>
-
 
 
 }

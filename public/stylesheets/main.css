@@ -19,10 +19,8 @@ html, body {
 
 nav {
     opacity: 1;
-    /*opacity: 0;*/
 }
 
-/*necessary because the navbar is taken in account*/
 #hithere {
     position: absolute;
     top: 40%;

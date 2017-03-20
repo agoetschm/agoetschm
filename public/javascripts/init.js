@@ -6,7 +6,7 @@
         $('.scrollspy').scrollSpy({scrollOffset: 0});
         
         $('#arrow_down_1').click(function () {
-            $("html, body").animate({ scrollTop: $("#about").offset().top  }, 2000);
+            $("html, body").animate({ scrollTop: $("#projects").offset().top  }, 2000);
         });
 
         $('#arrow_down_2').click(function () {
@@ -22,13 +22,6 @@
         else if(displayContactOk) {
             Materialize.toast('Message sent successfully.', 6000);
         }
-        // var options = [{
-        //     selector: '#about', offset: 1, callback: function () {
-        //         console.log("test");
-        //         $('nav').fadeTo('slow', 1);
-        //     }
-        // }];
-        // Materialize.scrollFire(options);
 
 
     }); // end of document ready
