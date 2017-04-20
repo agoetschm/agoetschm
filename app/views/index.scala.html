@@ -4,7 +4,7 @@
 @import helper._
 @import views.FormHelper._
 
-@main("Anselme Goetschmann") {
+@main("agoetschm.com") {
 
     @if(contactSuccess.isDefined) {
         @*tell the init.js script to display the right message once materialize is loaded*@
@@ -41,28 +41,23 @@
 
         <div id="hithere" class="container">
 
-            <h1 class="center grey-text text-darken-4 light">Hi there !</h1>
+            <h1 class="center grey-text text-darken-4 light">Hi there!</h1>
 
             <div class="row">
                 <h5 class="col s12 m10 offset-m1 l8 offset-l2 light">
-                    Below are a few links if you want to check out my online accounts. You can find some of my 
-                    software projects further down.
+                    Below are links if you want to check out my LinkedIn or Github profiles. You can find a few of my
+                    software projects further down and a contact form at the bottom of this page.
                 </h5>
             </div>
 
             <div class="row">
-                <a class="col s4 m2 offset-m3 center tooltipped" href="http://www.linkedin.com/in/anselme-goetschmann"
+                <a class="col s6 m3 offset-m3 center tooltipped" href="http://www.linkedin.com/in/anselme-goetschmann"
                 data-tooltip="LinkedIn profile">
                     <img src="@routes.Assets.at("images/linkedin-box.png")" height="48" width="48"/>
                 </a>
 
-                <a class="col s4 m2 center tooltipped" href="http://github.com/agoetschm" data-tooltip="Github profile">
+                <a class="col s6 m3 center tooltipped" href="http://github.com/agoetschm" data-tooltip="Github profile">
                     <img src="@routes.Assets.at("images/github-circle.png")" height="48" width="48"/>
-                </a>
-
-                <a class="col s4 m2 center tooltipped" href="http://play.google.com/store/apps/developer?id=goetschy"
-                data-tooltip="Android apps">
-                    <img src="@routes.Assets.at("images/google-play.png")" height="48" width="48"/>
                 </a>
             </div>
         </div>
@@ -129,7 +124,7 @@
                         </span>
                         <p>An Android application to test <a href="https://developers.google.com/vr/unity/">
                             Google VR in Unity</a>. It allows you to explore your folders and
-                            files as if they were boxes in a virtual reality. You can see the result on
+                            files as if they were boxes in a virtual reality. You can download the result on
                             Google Play, even if it's not really
                             usable.
                         </p>
@@ -159,14 +154,14 @@
                         </span>
                         <p>
                             An Android client for a patient management system based on OpenERP. The goal is
-                            to be able to centralize patient information sheets and to edit them on tablets. USFR 
+                            to be able to centralize patient information sheets and to edit them on tablets. USFR
                             refers to <a href="http://usfr.ch">usfr.ch</a>.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-
+        <br/>
         <div class="center">
             <a id="arrow_down_2" class="btn-floating white">
                 <i class="material-icons grey-text text-darken-4">keyboard_arrow_down</i>
