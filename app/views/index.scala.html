@@ -77,8 +77,37 @@
         <h4 class="center grey-text text-darken-4">Projects</h4>
 
         <div class="row">
-            @*linkmanager*@
-            <div class="col s12 m6 l4">
+            @*speech to latex*@
+            <div class="col s12 cards-container">
+                <div class="card hoverable sticky-action">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@routes.Assets.at("images/speech-to-latex.png")">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            Speech to LaTeX
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            Speech to LaTeX<i class="material-icons right">close</i>
+                        </span>
+                        <p>
+                            A web application using the <a href="https://cloud.google.com/speech/">Google Speech API</a>
+                            to convert speech to text and then a simple lookup table conversion to get its Latex syntax.
+                            Made with <a href="https://angular.io/">Angular</a>,
+                            <a href="http://materializecss.com/">Materialize</a>,
+                            <a href="https://socket.io/">Socket.IO</a> and
+                            <a href="https://www.npmjs.com/package/ng-katex">KaTeX</a>.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://github.com/agoetschm/speech-to-latex">GitHub</a>
+                        <a href="http://speech-to-latex.agoetschm.com">Heroku</a>
+                    </div>
+                </div>
+                @*linkmanager*@
                 <div class="card hoverable sticky-action">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="@routes.Assets.at("images/linkmanager.png")">
@@ -105,9 +134,7 @@
                         <a href="http://linkmanager.agoetschm.com">Heroku</a>
                     </div>
                 </div>
-            </div>
-            @*vr file browser*@
-            <div class="col s12 m6 l4">
+                @*vr file browser*@
                 <div class="card hoverable sticky-action">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="@routes.Assets.at("images/vr_file_browser.png")">
@@ -135,9 +162,7 @@
                             Google Play</a>
                     </div>
                 </div>
-            </div>
-            @*hangman*@
-            <div class="col s12 m6 l4">
+                @*hangman*@
                 <div class="card hoverable sticky-action">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="@routes.Assets.at("images/hangman.png")">
@@ -164,9 +189,7 @@
                             Heroku</a>
                     </div>
                 </div>
-            </div>
-            @*gest usfr*@
-            <div class="col s12 m6 l4">
+                @*gest usfr*@
                 <div class="card hoverable sticky-action">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="@routes.Assets.at("images/gestusfr.jpg")">
